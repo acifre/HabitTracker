@@ -22,32 +22,42 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 
-                List {
-                    ForEach(activitiesModel.activities) { activity in
-                        NavigationLink {
-                            Text("Detail View")
-                        } label: {
-                            Text(activity.name)
-                        }
+                Group {
+                    if activitiesModel.activities.count >= 1 {
                         
+                        List {
+                            ForEach(activitiesModel.activities) { activity in
+                                NavigationLink {
+                                    Text("Detail View")
+                                } label: {
+                                    Text(activity.name)
+                                }
+                                
+                            }
+                            .onDelete { index in
+                                activitiesModel.activities.remove(atOffsets: index)
+                            }
+                        }
+                    } else {
+                        VStack {
+                            Text("Create new habit")
+                                .font(.title3)
+                                .foregroundColor(.primary)
+                                .padding(.bottom, 2)
+                            Text("Your current habits will come here, create one by tapping on the plus button above")
+                                .multilineTextAlignment(.center)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                                .padding(.horizontal, 10)
+                        }
+                        .padding()
                     }
-                    .onDelete { index in
-                        activitiesModel.activities.remove(atOffsets: index)
-                    }
-                }
-                TextField("Activity Name", text: $activityName)
-                    .padding()
-                    .textFieldStyle(.roundedBorder)
-                Stepper("Completed Times", value: $activityCompletion)
-                    .padding()
-                Button {
-                    activitiesModel.activities.append(Activity(name: activityName, description: acitivityDescription, completionAmount: activityCompletion))
-                } label: {
-                    Text("Save Activity")
+
                 }
 
             }
             .padding()
+            .navigationTitle("HabitTracker")
             .toolbar {
                 ToolbarItem {
                     HStack {
