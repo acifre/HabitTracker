@@ -9,20 +9,20 @@ import SwiftUI
 
 struct AddHabitView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var activitiesModel: ActivitiesViewModel
+    @ObservedObject var habitsModel: HabitsViewModel
     
-    @State private var activityName = ""
-    @State private var activityDescription = ""
+    @State private var habitName = ""
+    @State private var habitDescription = ""
     
     var body: some View {
         NavigationView {
             Form {
                 Section("Name") {
-                    TextField("Enter the name of the habit...", text: $activityName)
+                    TextField("Enter the name of the habit...", text: $habitName)
 
                 }
                 Section("Description") {
-                    TextField("Enter habit description...", text: $activityDescription, axis: .vertical)
+                    TextField("Enter habit description...", text: $habitDescription, axis: .vertical)
                 }
                 
                 Button {
@@ -54,12 +54,12 @@ struct AddHabitView: View {
     }
     
     func addNewHabit() {
-        activitiesModel.activities.append(Activity(name: activityName, description: activityDescription, completionAmount: 0))
+        habitsModel.habits.append(Habit(name: habitName, description: habitDescription, completionAmount: 0))
     }
 }
 
 struct AddHabitView_Previews: PreviewProvider {
     static var previews: some View {
-        AddHabitView(activitiesModel: ActivitiesViewModel())
+        AddHabitView(habitsModel: HabitsViewModel())
     }
 }

@@ -17,8 +17,8 @@
 		6C1007072A1A71D900C83777 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1007062A1A71D900C83777 /* ContentView.swift */; };
 		6C1007092A1A71DA00C83777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C1007082A1A71DA00C83777 /* Assets.xcassets */; };
 		6C10070C2A1A71DA00C83777 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C10070B2A1A71DA00C83777 /* Preview Assets.xcassets */; };
-		6C1007132A1A72D700C83777 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1007122A1A72D700C83777 /* Activity.swift */; };
-		6C1007152A1A731300C83777 /* ActivitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1007142A1A731300C83777 /* ActivitiesViewModel.swift */; };
+		6C1007132A1A72D700C83777 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1007122A1A72D700C83777 /* Habit.swift */; };
+		6C1007152A1A731300C83777 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1007142A1A731300C83777 /* HabitsViewModel.swift */; };
 		6C1007172A1C00F200C83777 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1007162A1C00F200C83777 /* AddHabitView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +34,8 @@
 		6C1007062A1A71D900C83777 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6C1007082A1A71DA00C83777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C10070B2A1A71DA00C83777 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6C1007122A1A72D700C83777 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		6C1007142A1A731300C83777 /* ActivitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewModel.swift; sourceTree = "<group>"; };
+		6C1007122A1A72D700C83777 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		6C1007142A1A731300C83777 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
 		6C1007162A1C00F200C83777 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +94,7 @@
 		6C1006FB2A1A71D900C83777 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6C1007122A1A72D700C83777 /* Activity.swift */,
+				6C1007122A1A72D700C83777 /* Habit.swift */,
 				6C1006FC2A1A71D900C83777 /* AppSettings.swift */,
 			);
 			path = Models;
@@ -103,7 +103,7 @@
 		6C1006FE2A1A71D900C83777 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				6C1007142A1A731300C83777 /* ActivitiesViewModel.swift */,
+				6C1007142A1A731300C83777 /* HabitsViewModel.swift */,
 				6C1006FF2A1A71D900C83777 /* AppSettingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -198,10 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C1007152A1A731300C83777 /* ActivitiesViewModel.swift in Sources */,
+				6C1007152A1A731300C83777 /* HabitsViewModel.swift in Sources */,
 				6C1006FD2A1A71D900C83777 /* AppSettings.swift in Sources */,
 				6C1007032A1A71D900C83777 /* AppSettingsView.swift in Sources */,
-				6C1007132A1A72D700C83777 /* Activity.swift in Sources */,
+				6C1007132A1A72D700C83777 /* Habit.swift in Sources */,
 				6C1007072A1A71D900C83777 /* ContentView.swift in Sources */,
 				6C1007172A1C00F200C83777 /* AddHabitView.swift in Sources */,
 				6C1007002A1A71D900C83777 /* AppSettingsViewModel.swift in Sources */,

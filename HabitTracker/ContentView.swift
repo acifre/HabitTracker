@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var activitiesModel = ActivitiesViewModel()
+    @StateObject var habitsModel = HabitsViewModel()
     
-    @State private var activityName = ""
+    @State private var habitName = ""
     @State private var acitivityDescription = ""
     @State private var activityCompletion = 1
     
@@ -23,10 +23,10 @@ struct ContentView: View {
             VStack {
                 
                 Group {
-                    if activitiesModel.activities.count >= 1 {
+                    if habitsModel.habits.count >= 1 {
                         
                         List {
-                            ForEach(activitiesModel.activities) { activity in
+                            ForEach(habitsModel.habits) { activity in
                                 NavigationLink {
                                     Text("Detail View")
                                 } label: {
@@ -35,7 +35,7 @@ struct ContentView: View {
                                 
                             }
                             .onDelete { index in
-                                activitiesModel.activities.remove(atOffsets: index)
+                                habitsModel.habits.remove(atOffsets: index)
                             }
                         }
                     } else {
@@ -73,7 +73,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showingAddView) {
-                AddHabitView(activitiesModel: activitiesModel)
+                AddHabitView(activitiesModel: habitsModel)
             }
         }
     }
