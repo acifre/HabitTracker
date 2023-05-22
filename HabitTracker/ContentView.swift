@@ -12,7 +12,10 @@ struct ContentView: View {
     @StateObject var activitiesModel = ActivitiesViewModel()
     
     @State private var activityName = ""
-    @State private var activityCompletion = 0
+    @State private var acitivityDescription = ""
+    @State private var activityCompletion = 1
+    
+    @State private var showingAddView = false
     
     
     var body: some View {
@@ -33,9 +36,12 @@ struct ContentView: View {
                     }
                 }
                 TextField("Activity Name", text: $activityName)
+                    .padding()
+                    .textFieldStyle(.roundedBorder)
                 Stepper("Completed Times", value: $activityCompletion)
+                    .padding()
                 Button {
-                    activitiesModel.activities.append(Activity(name: activityName, completionAmount: activityCompletion))
+                    activitiesModel.activities.append(Activity(name: activityName, description: acitivityDescription, completionAmount: activityCompletion))
                 } label: {
                     Text("Save Activity")
                 }
@@ -44,8 +50,20 @@ struct ContentView: View {
             .padding()
             .toolbar {
                 ToolbarItem {
-                    EditButton()
+                    HStack {
+                        EditButton()
+                        Button {
+                            showingAddView = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .padding([.trailing,.top, .bottom])
+                    }
+
                 }
+            }
+            .sheet(isPresented: $showingAddView) {
+                AddHabitView(activitiesModel: activitiesModel)
             }
         }
     }
