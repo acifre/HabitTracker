@@ -16,24 +16,38 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack {
-            
-            List {
-                ForEach(activitiesModel.activities) { activity in
-                    Text(activity.name)
-                    
+        NavigationView {
+            VStack {
+                
+                List {
+                    ForEach(activitiesModel.activities) { activity in
+                        NavigationLink {
+                            Text("Detail View")
+                        } label: {
+                            Text(activity.name)
+                        }
+                        
+                    }
+                    .onDelete { index in
+                        activitiesModel.activities.remove(atOffsets: index)
+                    }
+                }
+                TextField("Activity Name", text: $activityName)
+                Stepper("Completed Times", value: $activityCompletion)
+                Button {
+                    activitiesModel.activities.append(Activity(name: activityName, completionAmount: activityCompletion))
+                } label: {
+                    Text("Save Activity")
+                }
+
+            }
+            .padding()
+            .toolbar {
+                ToolbarItem {
+                    EditButton()
                 }
             }
-            TextField("Activity Name", text: $activityName)
-            Stepper("Completed Times", value: $activityCompletion)
-            Button {
-                activitiesModel.activities.append(Activity(name: activityName, completionAmount: activityCompletion))
-            } label: {
-                Text("Save Activity")
-            }
-
         }
-        .padding()
     }
 }
 
